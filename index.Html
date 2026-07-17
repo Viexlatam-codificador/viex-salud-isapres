@@ -48,7 +48,7 @@ h1 em{font-style:italic;color:var(--me)}
 .hsub{color:rgba(255,255,255,.7);font-size:.95rem;max-width:420px;margin-bottom:24px}
 .hstats{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px}
 .sn{font-family:'DM Serif Display',serif;font-size:1.9rem;color:#fff;line-height:1}
-.sl{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:2px}
+.sl stroke{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:2px}
 .hredes{display:flex;gap:8px;flex-wrap:wrap}
 .hred{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);font-size:.75rem;padding:5px 11px;border-radius:50px;text-decoration:none;transition:background .2s}
 .hred:hover{background:rgba(255,255,255,.18);color:#fff}
@@ -125,7 +125,7 @@ section{padding:60px 5%}
 .icard:hover{border-color:var(--ce);box-shadow:0 4px 14px rgba(44,123,229,.1)}
 .iico{font-size:1.5rem;margin-bottom:5px}
 .icard h4{font-size:.79rem;font-weight:700;color:var(--az);margin-bottom:2px}
-.icard p{font-size:.7rem;color:var(--gt)}
+.icard p{font-size:.7om;color:var(--gt)}
 .bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
 .ben{display:flex;gap:13px;align-items:flex-start}
 .bico{width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,var(--az),var(--ce));display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
@@ -161,7 +161,7 @@ section{padding:60px 5%}
 .fi{border-bottom:1px solid #E5ECF5;padding:16px 0}
 .fq{display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:9px}
 .fq h4{font-size:.9rem;font-weight:600;color:var(--az)}
-.ftog{width:24px;height:24px;border-radius:50%;background:var(--gr);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:.95rem;color:var(--ce);transition:background .2s}
+.ftog{width:24px;height:24px;border-radius:50%;background:var(--gr);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--ce);transition:background .2s}
 .fa{font-size:.83rem;color:var(--gt);max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
 .fi.open .fa{max-height:200px;padding-top:9px}
 .fi.open .ftog{background:var(--az);color:#fff}
@@ -195,36 +195,19 @@ footer{background:var(--ne);color:rgba(255,255,255,.45);padding:32px 5%;font-siz
 .waf svg{width:27px;height:27px;fill:#fff}
 @media(max-width:480px){section{padding:44px 5%}.tbar{gap:14px}}
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1995302337788179');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1995302337788179&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <div class="logo" style="display:flex;align-items:center;gap:10px">
-    <img src="data:image/png;base64,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awlGKdI0/uaH61e/u/rep27tm5ksOqqNUqmSshqnk3daZwYIjDGGNz7w2r/e/TpldHZuvxRSyuZUAuAMrUAoKy2+a01n4c2XlFU3vPrEO4FA8JM3F+k61zg/UFZ74RV/rqqqXbns0XNG50opu02k20n5zR5fRLgr1+YCIqpvDrgmvzZ43jI7sXbMEEISUW29J3bw/PRzbm5p9UkppZRKKSGllKq+wRM7aH725NtDIUN2DCJqbGx15M4bPfseIrJntqeqONwAWVeMueQ+6nkceX3HbPc//T7wKbPmP0ZSHiqvzRx1g5Y659sf84nIsoTqbggpiaiw1Q8rNl6wcQ8RCak0qVRibNj4EakbfirbX+EZ3DfumDQtYyiETE6MeeLB6+64YcmTr618dtG1QkjOkRRxjS16brmnrPqD1+92Oh028W1RJwCl1PFi7w8YKGRcXOS+/RWBoME5txttbal26Hxwbgbn/AhTEgkhn1o0HxCffvjvszVWWuWpqWlY/emSCycOtyxhd2t3510BA9jY0IYhc0ZyjO1vgWkJInph2S7ou+Sl5buIyOxuw4SQwhJjLrtfS5lTWFxBRIZhEdGmrYUQOWPubc933WmbJg2NrVr2b0bNuvsYChcUV7LcayBjLkRdBFEzILrjipkJrgvCB18b8AeJSHblNykNwySiPz3xHkTPgPTLV2/MJ6KQYaqeh5CKiC7euA8++D7f4yUioZTGkAHA7Il97o0PX77u4J+uHsVZt50upGn81cW/Hz/tzoVL3l/zzoOKyLLk7Q8vDYsNf/HB607FUNtmAhEoZA0enHXFzHFCSkREsP9AChkbE8E4P8YCCUUOh15UUv3d2h2u5HjDMJe+u+r8MbnhbldP0mtrhOqgub7OMzQhalh0OBHZlTQlpSKiybd9jiNf2l3coIgs0Y00W5YgopsffANc0z9bs4WInn9zFejTnnnjCyKyLKur3HVHYSmEIKL9JVWQMueyW545JRlWyrQsItpbXJE64nqWfOm/d+x/+e2vACbOuPYxfyBEREJ0w5KmlET06oFqeHftkoIKIjKlVEpptjpljN94yaBN3xS/taroLwsn9RBkoVK05K6rPv70+4WPve31B//fs8uGnD984fWzpFSM8eNNgsY5P1LARkQgotTk+MSMxNVfb336tc+HZGdKKduth22KpUpOijlvzMBOK6Br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" alt="Viex Salud" style="height:38px;width:38px;border-radius:50%">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAIAAAABc2X6AAAffUlEQVR42sV8d2AVVdr385wzc+/NTe89tCT0FlCQIsVVEFReWcuKuKtrQ133XWzYvhUbdn1d19VVbOsK2HFFsAAKuIL0CCQhEFJJT26SW2fmnPO8f0wSAiTU7PudzF+TuWfO7zy9nEGlFPTSIAClCAA0zjpvNnlDB+ra9te1HWz0l7UEqgNmS8gMCoEac4XpcW5nSqSzf6w7Jy48Nz4yJy4iNszR+VtLKkRgiAi9NrBXABOBUqRpCIAA4A2a2w42bCis3XSwIf+wp9kTAEsAR9AYh宏" alt="Viex Salud" style="height:38px;width:38px;border-radius:50%">
     <span style="font-family:'DM Serif Display',serif;color:#fff;font-size:1.3rem">Viex<span style="color:var(--ce)">Salud</span></span>
   </div>
   <div class="nav-r">
     <div class="nav-ic">
       <a href="https://www.instagram.com/viexsalud?igsh=MW15ZzJoY3J4MXQzZQ%3D%3D&utm_source=qr" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         Instagram
       </a>
       <a href="https://www.facebook.com/profile.php?id=61589572141702" target="_blank">
@@ -232,7 +215,7 @@ src="https://www.facebook.com/tr?id=1995302337788179&ev=PageView&noscript=1"
         Facebook
       </a>
       <a href="https://www.tiktok.com/@viexsalud.cl" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
         TikTok
       </a>
     </div>
@@ -253,7 +236,7 @@ src="https://www.facebook.com/tr?id=1995302337788179&ev=PageView&noscript=1"
     </div>
     <div class="hredes">
       <a class="hred" href="https://www.instagram.com/viexsalud?igsh=MW15ZzJoY3J4MXQzZQ%3D%3D&utm_source=qr" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         @viexsalud.cl
       </a>
       <a class="hred" href="https://www.facebook.com/profile.php?id=61589572141702" target="_blank">
@@ -462,7 +445,7 @@ src="https://www.facebook.com/tr?id=1995302337788179&ev=PageView&noscript=1"
   <p class="ssub">Contenido sobre salud, comparativas y consejos para elegir la mejor Isapre.</p>
   <div class="rgrid">
     <a class="rcard ig" href="https://www.instagram.com/viexsalud?igsh=MW15ZzJoY3J4MXQzZQ%3D%3D&utm_source=qr" target="_blank">
-      <div class="rico ig"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+      <div class="rico ig"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
       <div class="rinfo"><strong>@viexsalud.cl</strong><span>Instagram</span></div>
     </a>
     <a class="rcard fb" href="https://www.facebook.com/profile.php?id=61589572141702" target="_blank">
@@ -481,212 +464,8 @@ src="https://www.facebook.com/tr?id=1995302337788179&ev=PageView&noscript=1"
       <div class="rico li"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11.001-4.125 2.062 2.062 0 010 4.125zM7.114 20.452H3.558V9h3.556v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></div>
       <div class="rinfo"><strong>Viex Salud</strong><span>LinkedIn</span></div>
     </a>
-    <a class="rcard gb" href="https://share.google/xHEgF6P2wY4e9bYuq" target="_blank">
-      <div class="rico gb"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
-      <div class="rinfo"><strong>Viex Salud</strong><span>Google Business · Reseñas</span></div>
-    </a>
   </div>
 </section>
 
-<!-- FAQ -->
-<section style="background:var(--gr)">
-  <div class="slbl">Preguntas frecuentes</div>
-  <h2 class="stit">Lo que mas nos preguntan</h2>
-  <div class="flist">
-    <div class="fi open"><div class="fq" onclick="tF(this)"><h4>La asesoria es realmente gratis?</h4><button class="ftog">&minus;</button></div><div class="fa">Si, 100% gratis para el afiliado. Las Isapres pagan comision a los corredores certificados al hacer una afiliacion. Tu no pagas nada adicional.</div></div>
-    <div class="fi"><div class="fq" onclick="tF(this)"><h4>Por que necesitan mi renta imponible?</h4><button class="ftog">+</button></div><div class="fa">Tu cotizacion de salud es el 7% de tu renta imponible. Con ese dato calculamos cuanto se destina al plan y que coberturas son financiables para ti.</div></div>
-    <div class="fi"><div class="fq" onclick="tF(this)"><h4>Para que sirve adjuntar mi plan actual?</h4><button class="ftog">+</button></div><div class="fa">Tu plan actual muestra exactamente que coberturas tienes hoy y cuanto pagas. Con eso hacemos una comparativa real contra los planes disponibles.</div></div>
-    <div class="fi"><div class="fq" onclick="tF(this)"><h4>Puedo incluir a toda mi familia?</h4><button class="ftog">+</button></div><div class="fa">Si. Los planes de Isapre permiten incluir conyuge e hijos como cargas. La edad de cada carga afecta el precio del plan, por eso te la pedimos.</div></div>
-    <div class="fi"><div class="fq" onclick="tF(this)"><h4>Puedo cambiarme si soy independiente?</h4><button class="ftog">+</button></div><div class="fa">Si cotizas en el sistema previsional puedes tomar Isapre. Hay opciones especificas para independientes que te explicamos en la asesoria.</div></div>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<section class="cta">
-  <h2>Listo para tomar el control<br>de tu salud?</h2>
-  <p>Cotizacion gratuita, personalizada, en menos de 24 horas.</p>
-  <div class="ctabtns">
-    <a class="bpc" href="#cotizar">Cotizar mi plan gratis &rarr;</a>
-    <a class="bsc" href="https://wa.me/56948627767?text=Hola%2C%20quiero%20cotizar%20un%20plan%20de%20Isapre." target="_blank">
-      <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.118 1.528 5.852L0 24l6.335-1.502A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.497-5.197-1.367l-.373-.22-3.762.892.938-3.658-.243-.375A9.938 9.938 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      WhatsApp directo
-    </a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="fi2">
-    <div>
-      <div class="fbr" style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-        <img src="data:image/png;base64,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awlGKdI0/uaH61e/u/rep27tm5ksOqqNUqmSshqnk3daZwYIjDGGNz7w2r/e/TpldHZuvxRSyuZUAuAMrUAoKy2+a01n4c2XlFU3vPrEO4FA8JM3F+k61zg/UFZ74RV/rqqqXbns0XNG50opu02k20n5zR5fRLgr1+YCIqpvDrgmvzZ43jI7sXbMEEISUW29J3bw/PRzbm5p9UkppZRKKSGllKq+wRM7aH725NtDIUN2DCJqbGx15M4bPfseIrJntqeqONwAWVeMueQ+6nkceX3HbPc//T7wKbPmP0ZSHiqvzRx1g5Y659sf84nIsoTqbggpiaiw1Q8rNl6wcQ8RCak0qVRibNj4EakbfirbX+EZ3DfumDQtYyiETE6MeeLB6+64YcmTr618dtG1QkjOkRRxjS16brmnrPqD1+92Oh028W1RJwCl1PFi7w8YKGRcXOS+/RWBoME5txttbal26Hxwbgbn/AhTEgkhn1o0HxCffvjvszVWWuWpqWlY/emSCycOtyxhd2t3510BA9jY0IYhc0ZyjO1vgWkJInph2S7ou+Sl5buIyOxuw4SQwhJjLrtfS5lTWFxBRIZhEdGmrYUQOWPubc933WmbJg2NrVr2b0bNuvsYChcUV7LcayBjLkRdBFEzILrjipkJrgvCB18b8AeJSHblNykNwySiPz3xHkTPgPTLV2/MJ6KQYaqeh5CKiC7euA8++D7f4yUioZTGkAHA7Il97o0PX77u4J+uHsVZt50upGn81cW/Hz/tzoVL3l/zzoOKyLLk7Q8vDYsNf/HB607FUNtmAhEoZA0enHXFzHFCSkREsP9AChkbE8E4P8YCCUUOh15UUv3d2h2u5HjDMJe+u+r8MbnhbldP0mtrhOqgub7OMzQhalh0OBHZlTQlpSKiybd9jiNf2l3coIgs0Y00W5YgopsffANc0z9bs4WInn9zFejTnnnjCyKyLKur3HVHYSmEIKL9JVWQMueyW545JRlWyrQsItpbXJE64nqWfOm/d+x/+e2vACbOuPYxfyBEREJ0w5KmlET06oFqeHftkoIKIjKlVEpptjpljN94yaBN3xS/taroLwsn9RBkoVK05K6rPv70+4WPve31B//fs8uGnD984fWzpFSM8eNNgsY5P1LARkQgotTk+MSMxNVfb336tc+HZGdKKduth22KpUpOijlvzMBOK6Br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" alt="Viex Salud" style="height:34px;width:34px;border-radius:50%">
-        <span>Viex<span>Salud</span></span>
-      </div>
-      <p class="fdc">Asesoria independiente y gratuita de Isapres en Chile. Comparamos todos los planes del mercado para que tu ganes.</p>
-      <div class="fso">
-        <a href="https://www.instagram.com/viexsalud?igsh=MW15ZzJoY3J4MXQzZQ%3D%3D&utm_source=qr" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a href="https://www.facebook.com/profile.php?id=61589572141702" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-        <a href="https://www.tiktok.com/@viexsalud.cl" target="_blank"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-        <a href="https://wa.me/56948627767" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.118 1.528 5.852L0 24l6.335-1.502A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.497-5.197-1.367l-.373-.22-3.762.892.938-3.658-.243-.375A9.938 9.938 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-        <a href="https://www.linkedin.com/in/viex-salud-956486413/" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11.001-4.125 2.062 2.062 0 010 4.125zM7.114 20.452H3.558V9h3.556v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
-      </div>
-    </div>
-    <div class="fc2">
-      <h4>Isapres</h4>
-      <a href="https://www.banmedica.cl/" target="_blank">Banmedica</a>
-      <a href="https://www.consalud.cl/" target="_blank">Consalud</a>
-      <a href="https://www.colmena.cl/" target="_blank">Colmena</a>
-      <a href="https://www.cruzblanca.cl/" target="_blank">Cruz Blanca</a>
-      <a href="https://www.vidatres.cl/" target="_blank">Vida Tres</a>
-      <a href="https://www.nuevamasvida.cl/" target="_blank">Nueva Mas Vida</a>
-      <a href="https://www.somosesencial.cl/" target="_blank">Esencial</a>
-    </div>
-    <div class="fc2">
-      <h4>Sitios de interes</h4>
-      <a href="https://supersalud.gob.cl" target="_blank">Superintendencia de Salud</a>
-      <a href="https://minsal.cl" target="_blank">Ministerio de Salud</a>
-      <a href="https://nuevo.fonasa.gob.cl" target="_blank">FONASA</a>
-      <a href="https://www.isapre.cl/" target="_blank">Asociacion de Isapres</a>
-      <h4 style="margin-top:14px">Contacto</h4>
-      <a href="tel:+56948627767">+56 9 4862 7767</a>
-      <a href="https://wa.me/56948627767">WhatsApp</a>
-    </div>
-  </div>
-  <div class="fbot">&copy; 2025 Viex Salud &middot; Asesoria independiente de Isapres en Chile &middot; <a href="#">Politica de privacidad</a></div>
-</footer>
-
-<!-- WA FLOTANTE -->
-<a class="waf" href="https://wa.me/56948627767?text=Hola%2C%20quiero%20cotizar%20un%20plan%20de%20Isapre%20con%20Viex%20Salud." target="_blank">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.118 1.528 5.852L0 24l6.335-1.502A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.497-5.197-1.367l-.373-.22-3.762.892.938-3.658-.243-.375A9.938 9.938 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-</a>
-
-<script>
-var cs=1,hc=false,cgs=[];
-function upS(n){
-  [1,2,3].forEach(function(i){
-    var d=document.getElementById('d'+i);
-    d.classList.remove('active','done');
-    if(i<n)d.classList.add('done');
-    else if(i===n)d.classList.add('active');
-  });
-  [1,2].forEach(function(i){
-    var l=document.getElementById('l'+i);
-    if(i<n)l.classList.add('done');else l.classList.remove('done');
-  });
-}
-function gS(n){
-  if(n>cs&&!val(cs))return;
-  document.getElementById('s'+cs).classList.remove('active');
-  cs=n;
-  document.getElementById('s'+cs).classList.add('active');
-  upS(cs);
-  document.getElementById('cotizar').scrollIntoView({behavior:'smooth',block:'start'});
-}
-function val(s){
-  if(s===1){
-    var n=document.getElementById('nom').value.trim();
-    var t=document.getElementById('tel').value.trim();
-    var e=document.getElementById('eda').value.trim();
-    var r=document.getElementById('reg').value;
-    if(!n||!t||!e||!r){alert('Por favor completa todos los campos del paso 1.');return false;}
-  }
-  if(s===2){
-    var si=document.getElementById('sit').value;
-    var es=document.getElementById('est').value;
-    var re=document.getElementById('ren').value.trim();
-    if(!si||!es||!re){alert('Por favor completa todos los campos del paso 2.');return false;}
-  }
-  if(s===3){
-    var pr=document.getElementById('pri').value;
-    var em=document.getElementById('eml').value.trim();
-    if(!pr||!em){alert('Por favor completa prioridad y correo electronico.');return false;}
-  }
-  return true;
-}
-function setCg(v,btn){
-  document.querySelectorAll('.tbtn').forEach(function(b){b.classList.remove('sel');});
-  btn.classList.add('sel');
-  hc=v==='si';
-  document.getElementById('cga').style.display=hc?'block':'none';
-  if(hc&&cgs.length===0)addC();
-}
-function addC(){
-  var id=Date.now();cgs.push(id);
-  var l=document.getElementById('cl');
-  var r=document.createElement('div');
-  r.className='crow';r.id='cg-'+id;
-  r.innerHTML='<div class="fg" style="margin:0"><label>Parentesco</label><select><option>Conyuge</option><option>Hijo/a</option><option>Otro</option></select></div><div class="fg" style="margin:0"><label>Edad</label><input type="number" placeholder="Ej: 5" min="0" max="99"/></div><button class="delbtn" onclick="delC('+id+')" title="Eliminar">&#10005;</button>';
-  l.appendChild(r);
-}
-function delC(id){
-  cgs=cgs.filter(function(c){return c!==id;});
-  var e=document.getElementById('cg-'+id);
-  if(e)e.remove();
-}
-function togIF(){
-  var v=document.getElementById('est').value;
-  document.getElementById('if').style.display=(v==='cambiar'||v==='mejorar')?'block':'none';
-}
-function showFN(input){
-  var p=document.getElementById('fpv');
-  p.textContent=input.files[0]?'Archivo: '+input.files[0].name:'';
-}
-async function enviar(){
-  if(!val(3))return;
-  var btn=document.querySelector('.bsub');
-  btn.textContent='Enviando...';btn.disabled=true;
-  var cdata=[];
-  document.querySelectorAll('#cl .crow').forEach(function(r){
-    var sel=r.querySelector('select').value;
-    var age=r.querySelector('input').value;
-    cdata.push(sel+' ('+age+' anos)');
-  });
-  var d={
-    nombre:document.getElementById('nom').value.trim(),
-    telefono:document.getElementById('tel').value.trim(),
-    edad:document.getElementById('eda').value.trim(),
-    sexo:document.getElementById('sex').value,
-    region:document.getElementById('reg').value,
-    cargas:hc?cdata.join(', '):'Solo el cotizante',
-    situacion:document.getElementById('sit').value,
-    estado:document.getElementById('est').value,
-    isapre_actual:document.getElementById('isan')?document.getElementById('isan').value:'',
-    pago_actual:document.getElementById('pag')?document.getElementById('pag').value:'',
-    renta:document.getElementById('ren').value.trim(),
-    prioridad:document.getElementById('pri').value,
-    email:document.getElementById('eml').value.trim(),
-    comentarios:document.getElementById('com').value.trim()
-  };
-  try{
-    await fetch('https://formspree.io/f/xpqegole',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(d)
-    });
-  }catch(e){console.log(e);}
-  var pag=d.pago_actual?'$'+parseInt(d.pago_actual).toLocaleString('es-CL'):'No indica';
-  var ren=d.renta?'$'+parseInt(d.renta).toLocaleString('es-CL'):'No indica';
-  var msg=encodeURIComponent('Nueva cotizacion Viex Salud\n\nNombre: '+d.nombre+'\nTelefono: '+d.telefono+'\nEdad: '+d.edad+' | Sexo: '+d.sexo+'\nRegion: '+d.region+'\nCargas: '+d.cargas+'\n\nSituacion laboral: '+d.situacion+'\nEstado actual: '+d.estado+(d.isapre_actual?'\nIsapre actual: '+d.isapre_actual:'')+(d.pago_actual?'\nPago actual: '+pag:'')+'\nRenta imponible: '+ren+'\n\nPrioridad: '+d.prioridad+'\nEmail: '+d.email+(d.comentarios?'\nComentarios: '+d.comentarios:''));
-  document.getElementById('wab').href='https://wa.me/56948627767?text='+msg;
-  document.getElementById('fa').style.display='none';
-  document.getElementById('sx').style.display='block';
-  if(typeof fbq!=='undefined'){fbq('track','Lead');}
-}
-function tF(el){
-  var item=el.closest('.fi');
-  var isOpen=item.classList.contains('open');
-  document.querySelectorAll('.fi').forEach(function(i){
-    i.classList.remove('open');
-    i.querySelector('.ftog').textContent='+';
-  });
-  if(!isOpen){item.classList.add('open');item.querySelector('.ftog').textContent='-';}
-}
-document.querySelectorAll('a[href="#cotizar"]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    e.preventDefault();
-    document.getElementById('cotizar').scrollIntoView({behavior:'smooth',block:'center'});
-  });
-});
-</script>
 </body>
 </html>
